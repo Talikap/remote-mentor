@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI)
         socketHandler(server)
 
         //listen for requests
-        server.listen(process.env.PORT, () =>{
+        server.listen(process.env.PORT,"0.0.0.0", () =>{
             console.log(`connected to db & listening on port ${process.env.PORT}`) 
         })  
     })
