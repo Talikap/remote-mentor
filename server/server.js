@@ -18,12 +18,16 @@ app.use((req, res, next) =>{
     next()
 })
 // routes
-app.use('/codeblocks', codeBlockRoutes)
+app.use('/api/codeblocks', codeBlockRoutes)
 
 const server = createServer(app)
 
 //integrate socket handelling
 socketHandler(server)
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 //const port = process.env.PORT || 4000;
 //listen for requests
