@@ -12,13 +12,10 @@ const app = express()
 
 //middleware
 app.use(express.json())
-app.use(cors());
 
 // routes
 app.use('/api/codeblocks', codeBlockRoutes)
-app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
+
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
