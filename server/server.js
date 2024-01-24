@@ -28,9 +28,10 @@ mongoose.connect(process.env.MONGO_URI)
         //integrate socket handelling
         socketHandler(server)
 
+        const port = process.env.PORT || 3000;
         //listen for requests
-        server.listen(process.env.PORT,"0.0.0.0", () =>{
-            console.log(`connected to db & listening on port ${process.env.PORT}`) 
+        server.listen(port,"0.0.0.0", () =>{
+            console.log(`connected to db & listening on port ${port}`) 
         })  
     })
     .catch((error) => {
