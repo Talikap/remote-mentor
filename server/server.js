@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const { createServer } = require('node:http')
+const path = require('path')
 const cors = require('cors');
 const codeBlockRoutes = require('./routes/codeblocks')
 const socketHandler = require('./socketHandler')
@@ -15,9 +16,9 @@ const corsOptions = {
   };
   
 app.use(cors(corsOptions));
-app.get('/',(req, res) => {
-    res.json({mssg: 'Welcome to the app'})
-})
+//app.get('/',(req, res) => {
+  //  res.json({mssg: 'Welcome to the app'})
+//})
 
 
 //middleware
@@ -25,9 +26,12 @@ app.use(express.json())
 
 // routes
 app.use('/api/codeblocks', codeBlockRoutes)
-
-app.listen(process.env.PORT,"0.0.0.0", () =>{
-    console.log(`connected to db & listening on port ${process.env.PORT}`) 
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
+const port = process.env.PORT || 4000
+app.listen(port,"0.0.0.0", () =>{
+    console.log(`connected to db & listening on port ${port}`) 
 })  
 
 //connect to db
