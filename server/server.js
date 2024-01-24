@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
-const { createServer } = require('node:https')
+const { createServer } = require('node:http')
 const codeBlockRoutes = require('./routes/codeblocks')
 const socketHandler = require('./socketHandler')
 

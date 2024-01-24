@@ -8,7 +8,7 @@ const Lobby = () =>{
     console.log("codeBlocks before setting",codeBlocks)
     useEffect(() => {
         const fetchCodeBlocks = async () =>{
-            const response = await fetch('/api/codeblocks')
+            const response = await fetch('https://remote-mentor-production-fd03.up.railway.app/api/codeblocks')
             const json = await response.json()
             
             if (response.ok) {
