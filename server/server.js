@@ -20,23 +20,23 @@ app.use((req, res, next) =>{
 // routes
 app.use('/api/codeblocks', codeBlockRoutes)
 
+const server = createServer(app)
 
+//integrate socket handelling
+socketHandler(server)
+
+//const port = process.env.PORT || 4000;
+//listen for requests
+server.listen(process.env.PORT,"0.0.0.0", () =>{
+    console.log(`connected to db & listening on port ${port}`) 
+})  
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
 
     .then(() => {
         console.log(`connected to db`) 
         //create HTTP server
-        const server = createServer(app)
-
-        //integrate socket handelling
-        socketHandler(server)
-
-        const port = process.env.PORT || 3000;
-        //listen for requests
-        server.listen(port,"0.0.0.0", () =>{
-            console.log(`connected to db & listening on port ${port}`) 
-        })  
+       
     })
     .catch((error) => {
         console.log(error)
