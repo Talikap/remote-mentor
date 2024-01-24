@@ -18,7 +18,7 @@ app.use((req, res, next) =>{
     next()
 })
 // routes
-app.use('/api/codeblocks', codeBlockRoutes)
+app.use('/codeblocks', codeBlockRoutes)
 
 const server = createServer(app)
 

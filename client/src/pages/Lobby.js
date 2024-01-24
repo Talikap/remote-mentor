@@ -8,7 +8,7 @@ const Lobby = () =>{
     console.log("codeBlocks before setting",codeBlocks)
     useEffect(() => {
         const fetchCodeBlocks = async () =>{
-            const response = await fetch('/api/codeblocks')
+            const response = await fetch('/codeblocks')
             const json = await response.json()
             
             if (response.ok) {
