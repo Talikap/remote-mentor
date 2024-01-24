@@ -10,6 +10,13 @@ const socketHandler = require('./socketHandler')
 //express app
 const app = express()
 
+//const corsOptions = {
+   // origin: 'https://remote-mentor-production.up.railway.app/', // Replace with your React app's URL
+  //  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  //};
+  
+ // app.use(cors(corsOptions));
+
 //middleware
 app.use(express.json())
 
