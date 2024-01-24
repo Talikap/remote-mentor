@@ -25,7 +25,7 @@ const server = createServer(app)
 //integrate socket handelling
 socketHandler(server)
 
-app.get('/**', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
