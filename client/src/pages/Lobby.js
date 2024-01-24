@@ -18,7 +18,7 @@ const Lobby = () =>{
             }
         }
         fetchCodeBlocks()
-    }, [])
+    }, [codeBlocks])
     return(
         <div className="lobby">
             <h1>Choose code block</h1>
