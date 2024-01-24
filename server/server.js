@@ -23,7 +23,9 @@ app.use(express.json())
 // routes
 app.use('/api/codeblocks', codeBlockRoutes)
 
-
+app.listen(process.env.PORT,"0.0.0.0", () =>{
+    console.log(`connected to db & listening on port ${process.env.PORT}`) 
+})  
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -34,9 +36,7 @@ mongoose.connect(process.env.MONGO_URI)
         socketHandler(server)
 
         //listen for requests
-        server.listen(process.env.PORT,"0.0.0.0", () =>{
-            console.log(`connected to db & listening on port ${process.env.PORT}`) 
-        })  
+       
     })
     .catch((error) => {
         console.log(error)
