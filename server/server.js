@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const { createServer } = require('node:http')
 const codeBlockRoutes = require('./routes/codeblocks')
 const socketHandler = require('./socketHandler')
+const path = require('path')
 
 
 //express app
@@ -25,7 +26,7 @@ const server = createServer(app)
 //integrate socket handelling
 socketHandler(server)
 
-app.get('/*', (req, res) => {
+app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
