@@ -21,6 +21,9 @@ app.use((req, res, next) =>{
     next()
 })
 // routes
+app.get('/',(req, res) =>{
+    res.json({mssg:'Welcome to the app'})
+})
 app.use('/api/codeblocks', codeBlockRoutes)
 
 const server = createServer(app)
