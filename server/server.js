@@ -23,6 +23,7 @@ app.use((req, res, next) =>{
 // routes
 app.use('/api/codeblocks', codeBlockRoutes)
 app.get('/',(req, res) =>{
+    console.log("before connection")
     res.json({mssg:'Welcome to the app'})
 })
 const server = createServer(app)
