@@ -9,16 +9,16 @@ const socketHandler = require('./socketHandler')
 
 //express app
 const app = express()
-
+const corsOptions = {
+    origin: 'https://remote-mentor-production.up.railway.app/', // Replace with your React app's URL
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  
+app.use(cors(corsOptions));
 app.get('/',(req, res) => {
     res.json({mssg: 'Welcome to the app'})
 })
-//const corsOptions = {
-   // origin: 'https://remote-mentor-production.up.railway.app/', // Replace with your React app's URL
-  //  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  //};
-  
- // app.use(cors(corsOptions));
+
 
 //middleware
 app.use(express.json())
@@ -29,6 +29,7 @@ app.use('/api/codeblocks', codeBlockRoutes)
 app.listen(process.env.PORT,"0.0.0.0", () =>{
     console.log(`connected to db & listening on port ${process.env.PORT}`) 
 })  
+
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
