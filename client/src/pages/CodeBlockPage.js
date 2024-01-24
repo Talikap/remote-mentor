@@ -81,7 +81,7 @@ const CodeBlockPage = () => {
     
     return(
         <div>
-            <h1>here will be a question maby</h1>
+            <h1>here will be a question</h1>
             {userType === 'readOnly' ? (
                 
                 <div className="codeblock">
@@ -90,7 +90,7 @@ const CodeBlockPage = () => {
                 </div>
             ) : (
                <div className="codeblock">
-                    <p>I can write?</p>
+
                     <CodeMirror value={code} height="200px" extensions={[javascript({ jsx: true })]} onChange={handleCodeChange}/>
                     
                     <button onClick={handleSave}>Save</button>
