@@ -4,12 +4,15 @@ import { io } from "socket.io-client"
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import {EditorView} from "@codemirror/view"
+import { tokyoNight } from '@uiw/codemirror-theme-tokyo-night';
+
 
 const CodeBlockPage = () => {
     //const [codeBlock, setCodeBlock] = useState([])
     const [userType, setUserType] = useState(null)
     const { id } = useParams()
     const [code, setCode] = useState("")
+    const [question, setQuestion] = useState("")
 
     // Create a mutable object that persists across renders
     const socketRef = useRef(null);
@@ -39,6 +42,7 @@ const CodeBlockPage = () => {
             
             if (response.ok) {
                 //setCodeBlock(json)
+                setQuestion(json.question)
                 setCode(json.code);
             }
         }
@@ -80,18 +84,18 @@ const CodeBlockPage = () => {
     };
     
     return(
-        <div>
-            <h1>here will be a question</h1>
+        <div className="codeblock-page">
+            <h3>{question}</h3>
             {userType === 'readOnly' ? (
                 
                 <div className="codeblock">
-                    <CodeMirror value={code} height="200px" extensions={[javascript({ jsx: true }), EditorView.editable.of(false)]} />
+                    <CodeMirror value={code} height="200px" theme={tokyoNight} extensions={[javascript({ jsx: true }), EditorView.editable.of(false)]} />
                  
                 </div>
             ) : (
                <div className="codeblock">
 
-                    <CodeMirror value={code} height="200px" extensions={[javascript({ jsx: true })]} onChange={handleCodeChange}/>
+                    <CodeMirror value={code} height="200px"  theme={tokyoNight} extensions={[javascript({ jsx: true })]} onChange={handleCodeChange}/>
                     
                     <button onClick={handleSave}>Save</button>
                 </div> 

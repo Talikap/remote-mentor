@@ -1,35 +1,45 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react";
 
-//components
-import CodeBlockDetails from '../components/codeblockdetails'
+// components
+import CodeBlockDetails from '../components/codeblockdetails';
 
-const Lobby = () =>{
-    const [codeBlocks, setCodeBlocks] = useState([])
-    console.log("codeBlocks before setting",codeBlocks)
+const Lobby = () => {
+    const [codeBlocks, setCodeBlocks] = useState([]);
+    const codeBlocksRef = useRef();
+
     useEffect(() => {
-        const fetchCodeBlocks = async () =>{
-            const response = await fetch('/api/codeblocks')
-            const json = await response.json()
-            
+        codeBlocksRef.current = codeBlocks;
+    }, [codeBlocks]);
+
+    useEffect(() => {
+        const fetchCodeBlocks = async () => {
+            const response = await fetch('/api/codeblocks');
+            const json = await response.json();
+
             if (response.ok) {
-                console.log("response is ok")
-                setCodeBlocks(json)
-                console.log(codeBlocks)
+                setCodeBlocks(json);
+                console.log("codeBlocks after setting", codeBlocksRef.current);
             }
-        }
-        fetchCodeBlocks()
-    }, [codeBlocks])
-    return(
-        <div className="lobby">
-            <h1>Choose code block</h1>
-            <div className="codeblock">
-                {codeBlocks && codeBlocks.map((codeBlock) => (
-                    <CodeBlockDetails key={codeBlock._id} codeBlock={codeBlock}/>
-                ))}
+        };
+
+        fetchCodeBlocks();
+    }, []);
+
+    return (
+        <div>
+            <div className='image-container'>
+                <img src="photo.jpg" alt="by Anthony Garand on Unsplash" className='image'/>
+            </div>
+            <div className="lobby">
+                <h2>Choose a code block</h2>
+                <div className="codeblock">
+                    {codeBlocks && codeBlocks.map((codeBlock) => (
+                        <CodeBlockDetails key={codeBlock._id} codeBlock={codeBlock}/>
+                    ))}
+                </div>
             </div>
         </div>
+    );
+};
 
-    )
-}
-
-export default Lobby
+export default Lobby;

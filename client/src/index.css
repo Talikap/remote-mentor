@@ -1,13 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Poppins:wght@300&display=swap');
+
 body {
+  background-color: #181a24;
+  font-family: "Poppins";
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  background: #202330;
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+}
+
+header a {
+  color: #959cbd;
+  text-decoration: none;
+}
+
+.navbar {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.lobby{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.codeblock-page{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.codeblock-details {
+  max-width: 800px;
+  background: #202330;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.codeblock-details h4 Link {
+  text-emphasis-color: #959cbd;
+  margin: 0 0 10px 0;
+  font-size: 2em;
+}
+
+a {
+  color: #959cbd;
+  text-decoration: none;
+}
+
+.lobby h2 {
+  color: #959cbd;
+  text-align: center;
+}
+
+h3 {
+  color: #959cbd;
+}
+
+
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

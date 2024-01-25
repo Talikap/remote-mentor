@@ -10,20 +10,18 @@ const socketHandler = require('./socketHandler')
 
 //express app
 const app = express()
-const corsOptions = {
-    origin: 'https://remote-mentor-production.up.railway.app', // Replace with your React app's URL
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  };
+//const corsOptions = {
+  //  origin: 'https://remote-mentor-production.up.railway.app', // Replace with your React app's URL
+   // optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  //};
   
 
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://remote-mentor-production.up.railway.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+   console.log(req.path, req.method)
     next();
   });
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 //app.get('/',(req, res) => {
   //  res.json({mssg: 'Welcome to the app'})
 //})
@@ -34,13 +32,10 @@ app.use(express.json())
 
 // routes
 app.use('/api/codeblocks', codeBlockRoutes)
-app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
-const port = process.env.PORT || 4000
-app.listen(port,"0.0.0.0", () =>{
-    console.log(`connected to db & listening on port ${port}`) 
-})  
+//app.get('/**', (req, res) => {
+  //  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+//})
+
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
@@ -52,6 +47,10 @@ mongoose.connect(process.env.MONGO_URI)
         socketHandler(server)
 
         //listen for requests
+        const port = process.env.PORT || 4000
+        server.listen(port,"0.0.0.0", () =>{
+        console.log(`connected to db & listening on port ${port}`) 
+})  
        
     })
     .catch((error) => {
