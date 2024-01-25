@@ -33,7 +33,7 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/remote-mentor.git
+   git clone https://github.com/Talikap/remote-mentor.git
    cd remote-mentor
 
 2. Install dependencies listed in the package.json
