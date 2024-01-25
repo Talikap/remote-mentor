@@ -30,8 +30,8 @@ app.get('/*', function(req, res) {
   });
 });
 
-const port = T || 4000
-app.listen(process.env.POR,"0.0.0.0", () =>{
+const port = process.env.PORT || 4000
+app.listen(port,"0.0.0.0", () =>{
 console.log(`connected to db & listening on port ${port}`) 
 })
 //const corsOptions = {
