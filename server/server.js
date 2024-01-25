@@ -6,6 +6,7 @@ const path = require('path')
 const cors = require('cors');
 const codeBlockRoutes = require('./routes/codeblocks')
 const socketHandler = require('./socketHandler')
+const path = require('path');
 
 
 //express app
@@ -14,6 +15,14 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api/codeblocks', codeBlockRoutes)
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
 const port = process.env.PORT || 4000
 app.listen(port,"0.0.0.0", () =>{
 console.log(`connected to db & listening on port ${port}`) 
