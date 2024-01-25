@@ -1,5 +1,4 @@
 {
-  "proxy": "https://remote-mentor-production.up.railway.app",
   "name": "client",
   "version": "0.1.0",
   "private": true,
