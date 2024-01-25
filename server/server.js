@@ -10,16 +10,24 @@ const socketHandler = require('./socketHandler')
 
 //express app
 const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use('/api/codeblocks', codeBlockRoutes)
+const port = process.env.PORT || 4000
+app.listen(port,"0.0.0.0", () =>{
+console.log(`connected to db & listening on port ${port}`) 
+})
 //const corsOptions = {
   //  origin: 'https://remote-mentor-production.up.railway.app', // Replace with your React app's URL
    // optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   //};
   
 
-  app.use((req, res, next) => {
-   console.log(req.path, req.method)
-    next();
-  });
+  //app.use((req, res, next) => {
+   //console.log(req.path, req.method)
+    //next();
+  //});
 
 //app.use(cors(corsOptions));
 //app.get('/',(req, res) => {
@@ -28,10 +36,10 @@ const app = express()
 
 
 //middleware
-app.use(express.json())
+
 
 // routes
-app.use('/api/codeblocks', codeBlockRoutes)
+
 //app.get('/**', (req, res) => {
   //  res.sendFile(path.join(__dirname, 'public', 'index.html'))
 //})
@@ -45,12 +53,13 @@ mongoose.connect(process.env.MONGO_URI)
 
         //integrate socket handelling
         socketHandler(server)
-
+      /*
         //listen for requests
         const port = process.env.PORT || 4000
         server.listen(port,"0.0.0.0", () =>{
         console.log(`connected to db & listening on port ${port}`) 
-})  
+        })  
+        */
        
     })
     .catch((error) => {
