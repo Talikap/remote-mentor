@@ -13,7 +13,7 @@ const Lobby = () => {
 
     useEffect(() => {
         const fetchCodeBlocks = async () => {
-            const response = await fetch('/api/codeblocks');
+            const response = await fetch('https://remote-mentor-production.up.railway.app/api/codeblocks');
             const json = await response.json();
 
             if (response.ok) {
