@@ -12,7 +12,7 @@ const socketHandler = require('./socketHandler')
 //express app
 const app = express()
 const corsOptions ={
-  origin:'*', 
+  origin:'https://remote-mentor-production-fd03.up.railway.app/', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
 }
