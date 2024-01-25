@@ -56,9 +56,6 @@ console.log(`connected to db & listening on port ${port}`)
 
 // routes
 
-//app.get('/**', (req, res) => {
-  //  res.sendFile(path.join(__dirname, 'public', 'index.html'))
-//})
 
 
 //connect to db
