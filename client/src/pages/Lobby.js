@@ -28,7 +28,7 @@ const Lobby = () => {
     return (
         <div>
             <div className='image-container'>
-                <img src="Picture.jpg" alt="by Anthony Garand on Unsplash" className='image'/>
+                <img src="photo.jpg" alt="by Anthony Garand on Unsplash" className='image'/>
             </div>
             <div className="lobby">
                 <h2>Choose a code block</h2>
