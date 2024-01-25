@@ -30,9 +30,9 @@ app.get('/*', function(req, res) {
   });
 });
 
-const port = process.env.PORT 
+const port = process.env.PORT || 4000
 app.listen(port,"0.0.0.0", () =>{
-console.log(`connected to db & listening on port ${port}`) 
+  console.log(`listening on port ${port}`) 
 })
 //const corsOptions = {
   //  origin: 'https://remote-mentor-production.up.railway.app', // Replace with your React app's URL
