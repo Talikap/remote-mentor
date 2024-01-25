@@ -30,7 +30,7 @@ app.get('/*', function(req, res) {
   });
 });
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT 
 app.listen(port,"0.0.0.0", () =>{
 console.log(`connected to db & listening on port ${port}`) 
 })
