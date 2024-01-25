@@ -2,7 +2,7 @@
 
 **Remote Mentor** is an online coding web application that facilitates real-time collaborative coding sessions between a mentor and students. The application includes a Lobby page for choosing code blocks and a Code Block page for viewing and editing code.
 
-## Link deployed website
+## Website link
 
 https://remote-mentor.onrender.com/
 
@@ -42,19 +42,19 @@ Make sure you have the following installed on your machine:
 
     - Ensure MongoDB is installed and running.
     - Create the necessary documents in the database.
-    - Add the MongoDB connection string to your .env file.MONGO_URI=your-mongodb-connection-string 
-
-3. Start server 
-    ```bash
-    npm start
-
+    - Add the MongoDB connection string to your .env file. MONGO_URI=your-mongodb-connection-string 
 
 4. Start server 
     ```bash
     npm start
 
 
+5. Start client 
+    ```bash
+    npm start
+
+
 ### Usage
-1.Access the Lobby page to choose a code block.
-2.Click on a code block to enter the Code Block page.
-3.Open two windows for real-time collaboration begins with the mentor and student.
+1. Access the Lobby page to choose a code block.
+2. Click on a code block to enter the Code Block page.
+3. Open two windows for real-time collaboration begins with the mentor and student.
