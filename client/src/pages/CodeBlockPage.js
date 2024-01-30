@@ -33,7 +33,9 @@ const CodeBlockPage = () => {
 
         // Listen for 'codeChange' event from the server
         socketRef.current.on('codeChange', ({ newCode }) => {
-            setCode(newCode);
+            if (userType === 'readOnly') {
+                setCode(newCode);
+            }
         });
 
         const fetchCodeBlocks = async () => {
@@ -57,7 +59,7 @@ const CodeBlockPage = () => {
             socketRef.current.disconnect();
             socketRef.current = null;
         };
-    }, [id]);
+    }, [id, userType]);
 
     const handleCodeChange = (value) => {
         setCode(value);
